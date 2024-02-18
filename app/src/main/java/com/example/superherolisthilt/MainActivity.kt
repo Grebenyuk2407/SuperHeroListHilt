@@ -3,6 +3,7 @@ package com.example.superherolisthilt
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import dagger.Component
 import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
@@ -12,6 +13,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -52,17 +54,3 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
-@Module
-@InstallIn(MyApp::class)
-object AppModule {
-    @Provides
-    @Singleton
-    fun provideApiClient(): ApiInterface {
-        return Retrofit.Builder()
-            .client(OkHttpClient())
-            .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl("https://akabab.github.io")
-            .build()
-            .create(ApiInterface::class.java)
-    }
-}

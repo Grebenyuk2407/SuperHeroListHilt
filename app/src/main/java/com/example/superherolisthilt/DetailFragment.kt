@@ -15,7 +15,9 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class DetailFragment : Fragment() {
-    @Inject lateinit var superHeroItem : SuperHeroItem
+    private lateinit var superHeroItem : SuperHeroItem
+    @Inject
+    lateinit var apiInterface: ApiInterface
 
     override fun onCreateView(
         inflater: LayoutInflater,
