@@ -1,7 +1,5 @@
 package com.example.superherolisthilt
 
-class SuperHero : ArrayList<SuperHeroItem>()
-
 data class SuperHeroItem(
     val appearance: Appearance,
     val biography: Biography,
